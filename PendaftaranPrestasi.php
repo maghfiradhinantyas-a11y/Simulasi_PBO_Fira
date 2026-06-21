@@ -3,6 +3,7 @@
 require_once 'Pendaftaran.php';
 
 class PendaftaranPrestasi extends Pendaftaran {
+    // --- ATAS: Tetap Menggunakan Codingan Tahap 4 ---
     private $jenisPrestasi;
     private $tingkatPrestasi;
 
@@ -24,6 +25,12 @@ class PendaftaranPrestasi extends Pendaftaran {
         $stmt = $db->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // --- BAWAH: Tahap 5 - Method Overriding ---
+    public function hitungTotalBiaya() {
+        // Aturan 2: Potongan/insentif sebesar Rp50.000 dari biaya dasar
+        return $this->biayaPendaftaranDasar - 50000;
     }
 }
 ?>
