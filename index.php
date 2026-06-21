@@ -2,7 +2,7 @@
 // index.php
 
 // 1. Import semua file yang dibutuhkan
-require_once 'koneksi/database.php';
+require_once 'koneksi.php';
 require_once 'PendaftaranReguler.php';
 require_once 'PendaftaranPrestasi.php';
 require_once 'PendaftaranKedinasan.php';
@@ -169,7 +169,7 @@ $dataKedinasan = PendaftaranKedinasan::getDaftarKedinasan($db);
                         $obj = new PendaftaranReguler(
                             $row['id_pendaftaran'], $row['nama_calon'], $row['asal_sekolah'], 
                             $row['nilai_ujian'], $row['biaya_pendaftaran_dasar'], 
-                            $row['pilihan_prodi'], $row['lokasi_campur']
+                            $row['pilihan_prodi'], $row['lokasi_kampus']
                         );
                     ?>
                     <tr>
